@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_css %}
+
+
+.leading-headline {
+	font-size: 2.0em;
+	padding-top: 20px;
+	padding-left: 20px;	
+}
+
+.leading-text {
+	font-size: 1.1em;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 3px;
+	padding-bottom: 20px;
+}
+
+
+.events a {
+	color: #eb6e64;
+	font-weight: 1000;
+}
+
+.events .card {
+	border-bottom: #3f3d56 2px solid;
+}
+
+.events .events-headline {
+	font-size: 2.0em;
+	padding-left: 20px;
+}
+
+.discord {
+	height: 600px;
+	background-color: #3f3d56
+}
+
+{% endblock %}
+
+
+
+{% block body %}
+
+<div class="container pt-5">
+	<div class="row">
+		<div class="col-lg-7  pt-4">
+					<img src="{% static 'bg.png' %}" class="img-fluid">	
+		</div>
+	
+	<div class="col-lg-5">
+	
+			<p class="leading-headline">Welcome to PyATL</p>
+			<p class="leading-text">PyAtl meets every month in Atlanta for presentations and discussion about Python, the powerful and easy-to-use programming language. Every meeting tries to include something for beginners, and also to tackle advanced topics for seasoned developers. We are all learning, so don't be shy about attending, no matter your experience level! Come discover the feeling of community that emerges when people step forward from behind their blogs and keyboards to talk about their favorite programming language.</p> 
+
+		</div>
+
+	
+
+	
+</div>
+<hr>
+</div>
+
+<div class="container pt-3 events">
+
+		<div class="row">
+			<p class="events-headline pb-3">Upcoming Events</p>
+
+	</div>
+	
+	
+  <div class="row">
+      
+
+      <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+               
+                <p class="date">01-01-0101</p>
+              
+                <h5 class="card-title">Meetup</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Location: <a href="">There</a></h6>
+              <p class="card-text">A description</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a type="button" href="" class="">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+				
+				
+	      <div class="col-md-4">
+	          <div class="card mb-4 shadow-sm">
+	            <div class="card-body">
+               
+	                <p class="date">01-01-0101</p>
+              
+	                <h5 class="card-title">Meetup</h5>
+	                <h6 class="card-subtitle mb-2 text-muted">Location: <a href="">There</a></h6>
+	              <p class="card-text">A description</p>
+	              <div class="d-flex justify-content-between align-items-center">
+	                <div class="btn-group">
+	                  <a type="button" href="" class="">Learn More</a>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+					
+					
+		      <div class="col-md-4">
+		          <div class="card mb-4 shadow-sm">
+		            <div class="card-body">
+               
+		                <p class="date">01-01-0101</p>
+              
+		                <h5 class="card-title">Meetup</h5>
+		                <h6 class="card-subtitle mb-2 text-muted">Location: <a href="">There</a></h6>
+		              <p class="card-text">A description</p>
+		              <div class="d-flex justify-content-between align-items-center">
+		                <div class="btn-group">
+		                  <a type="button" href="" class="">Learn More</a>
+		                </div>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+
+        
+  </div>
+	
+	
+</div>
+
+<div class="discord mt-5">
+	<div class="container pt-5">
+	</div>
+</div>
+
+
+
+
+{% endblock %}
