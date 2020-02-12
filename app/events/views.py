@@ -10,7 +10,7 @@ from events.models import (
 
 class EventView(TemplateView):
     ''' Show single Event '''
-    template_name = 'event-detail.html'
+    template_name = 'events/event-detail.html'
 
     def get_context_data(self, **kwargs):
         context = super(EventView, self).get_context_data(**kwargs)
@@ -20,7 +20,7 @@ class EventView(TemplateView):
 
 class EventsView(TemplateView):
     ''' List all Events '''
-    template_name = 'events.html'
+    template_name = 'events/events.html'
 
     def get_context_data(self, **kwargs):
         context = super(EventsView, self).get_context_data(**kwargs)
@@ -51,7 +51,7 @@ class EventInviteDownloadView(View):
 
 class LocationView(TemplateView):
     ''' Show single Location '''
-    template_name = 'location-detail.html'
+    template_name = 'events/location-detail.html'
 
     def get_context_data(self, **kwargs):
         context = super(LocationView, self).get_context_data(**kwargs)
@@ -61,7 +61,7 @@ class LocationView(TemplateView):
 
 class LocationsView(TemplateView):
     ''' List all Locations '''
-    template_name = 'locations.html'
+    template_name = 'events/locations.html'
 
     def get_context_data(self, **kwargs):
         context = super(LocationsView, self).get_context_data(**kwargs)

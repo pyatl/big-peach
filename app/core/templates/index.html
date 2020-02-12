@@ -2,6 +2,52 @@
 {% load static %}
 {% block page_css %}
 
+.hero {
+	background-color: #fff;
+}
+
+@media (max-width: 576px) {
+		.hero {
+			padding-top: 2em;
+			padding-bottom: 3em;
+		}
+	}
+
+@media (min-width: 576px) {
+		.hero {
+			padding-top: 2em;
+			padding-bottom: 3em;
+		}
+	}
+
+@media (min-width: 768px) {
+	.hero {
+		padding-top: 6em;
+		padding-bottom: 6em;
+	}
+}
+
+@media (min-width: 992px) {
+	.hero {
+		padding-top: 12em;
+		padding-bottom: 12em;
+	}
+}
+
+@media (min-width: 1200px) {
+	.hero {
+		padding-top: 12em;
+		padding-bottom: 12em;
+	}
+}
+
+
+.hero h1 {
+	font-size: 7em;
+}
+
+
+
 
 .leading-headline {
 	font-size: 2.0em;
@@ -18,13 +64,54 @@
 }
 
 
-.events a {
-	color: #eb6e64;
-	font-weight: 1000;
+.events {
+	background: #fff;
 }
 
+
+@media (max-width: 576px) {
+		.events {
+			padding-top: 3em;
+			padding-bottom: 5em;
+		}
+	}
+
+@media (min-width: 576px) {
+		.events {
+			padding-top: 3em;
+			padding-bottom: 5em;
+		}
+	}
+
+@media (min-width: 768px) {
+	.events {
+		padding-top: 3em;
+		padding-bottom: 5em;
+	}
+}
+
+@media (min-width: 992px) {
+	.events {
+		padding-top: 3em;
+		padding-bottom: 5em;
+	}
+}
+
+@media (min-width: 1200px) {
+	.events {
+		padding-top: 3em;
+		padding-bottom: 5em;
+	}
+}
+
+
+.events h2 {
+
+}
+
+
+
 .events .card {
-	border-bottom: #3f3d56 2px solid;
 }
 
 .events .events-headline {
@@ -32,10 +119,9 @@
 	padding-left: 20px;
 }
 
-.discord {
-	height: 600px;
-	background-color: #3f3d56
-}
+
+.submit-talk {}
+
 
 {% endblock %}
 
@@ -43,106 +129,114 @@
 
 {% block body %}
 
-<div class="container pt-5">
-	<div class="row">
-		<div class="col-lg-7  pt-4">
-					<img src="{% static 'bg.png' %}" class="img-fluid">	
-		</div>
-	
-	<div class="col-lg-5">
-	
-			<p class="leading-headline">Welcome to PyATL</p>
-			<p class="leading-text">PyAtl meets every month in Atlanta for presentations and discussion about Python, the powerful and easy-to-use programming language. Every meeting tries to include something for beginners, and also to tackle advanced topics for seasoned developers. We are all learning, so don't be shy about attending, no matter your experience level! Come discover the feeling of community that emerges when people step forward from behind their blogs and keyboards to talk about their favorite programming language.</p> 
-
-		</div>
-
-	
-
-	
-</div>
-<hr>
+<div class="hero">
+	<div class="container pt-5">
+			<h1>We are PyATL.</h1>
+			<h3 class="pt-3">A group of technologists that meets every month in Atlanta for presentations and discussion about <a href="https://python.org">Python</a>.</h3>
+	</div>
 </div>
 
-<div class="container pt-3 events">
+
+<div class="events">
+<div class="container pt-1">
 
 		<div class="row">
-			<p class="events-headline pb-3">Upcoming Events</p>
-
+			<div class="col-12">
+				<h2 class="pb-5">Upcoming Events</h2>
+			</div>
 	</div>
 	
-	
-  <div class="row">
-      
-
-      <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <div class="card-body">
-               
-                <p class="date">01-01-0101</p>
-              
-                <h5 class="card-title">Meetup</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Location: <a href="">There</a></h6>
-              <p class="card-text">A description</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a type="button" href="" class="">Learn More</a>
-                </div>
-              </div>
-            </div>
+	<div class="upcoming-events">
+		<hr>
+		<div class="row">
+			<div class="col-lg-12">
+				
+          <p class="date">Date: 01-01-0101</p>
+          <p class="date">Time: 7:00 PM</p>
+					
+        
+          <h5 class="card-title">Meetup</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Location: <a href="">There</a></h6>
+        <p class="card-text">A description</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <a type="button" href="" class="">Learn More</a>
           </div>
         </div>
-
+				<hr>
+			</div>
+			
+		</div>
+		
+		
+		
+		
+		
+		<div class="row">
+			<div class="col-lg-12">
 				
-				
-	      <div class="col-md-4">
-	          <div class="card mb-4 shadow-sm">
-	            <div class="card-body">
-               
-	                <p class="date">01-01-0101</p>
-              
-	                <h5 class="card-title">Meetup</h5>
-	                <h6 class="card-subtitle mb-2 text-muted">Location: <a href="">There</a></h6>
-	              <p class="card-text">A description</p>
-	              <div class="d-flex justify-content-between align-items-center">
-	                <div class="btn-group">
-	                  <a type="button" href="" class="">Learn More</a>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-	        </div>
+          <p class="date">Date: 01-01-0101</p>
+          <p class="date">Time: 7:00 PM</p>
 					
-					
-		      <div class="col-md-4">
-		          <div class="card mb-4 shadow-sm">
-		            <div class="card-body">
-               
-		                <p class="date">01-01-0101</p>
-              
-		                <h5 class="card-title">Meetup</h5>
-		                <h6 class="card-subtitle mb-2 text-muted">Location: <a href="">There</a></h6>
-		              <p class="card-text">A description</p>
-		              <div class="d-flex justify-content-between align-items-center">
-		                <div class="btn-group">
-		                  <a type="button" href="" class="">Learn More</a>
-		                </div>
-		              </div>
-		            </div>
-		          </div>
-		        </div>
-
         
-  </div>
+          <h5 class="card-title">Meetup</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Location: <a href="">There</a></h6>
+        <p class="card-text">A description</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <a type="button" href="" class="">Learn More</a>
+          </div>
+        </div>
+				<hr>
+			</div>
+			
+		</div>
+		
+	</div>
 	
 	
+		
+		<div class="row">
+			<div class="col-lg-12">
+				
+          <p class="date">Date: 01-01-0101</p>
+          <p class="date">Time: 7:00 PM</p>
+					
+        
+          <h5 class="card-title">Meetup</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Location: <a href="">There</a></h6>
+        <p class="card-text">A description</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <a type="button" href="" class="">Learn More</a>
+          </div>
+        </div>
+				<hr>
+			</div>
+			
+		</div>
+		
+	</div>
+	
+</div>
 </div>
 
-<div class="discord mt-5">
-	<div class="container pt-5">
+
+
+<div class="submit-talk">
+<div class="container pt-1">
+
+		<div class="row">
+			<div class="col-12">
+				<h2 class="pb-5">Submit a Talk</h2>
+			</div>
 	</div>
-</div>
+
 
 
 
 
 {% endblock %}
+
+
+
