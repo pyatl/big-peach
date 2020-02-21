@@ -3,7 +3,7 @@ from social_rpa.models import ScheduledTweet
 from social_rpa.twitter import autheticate, update_status
 
 class Command(BaseCommand):
-    help = 'Published scheduled tweets to Twitter'
+    help = 'Publish scheduled tweets to Twitter'
 
     def handle(self, *args, **options):
 

@@ -11,7 +11,7 @@
 	<meta name="twitter:description" content="{% block twitter_card_description %}{% endblock %}">
     <title>{% block page_title %}{% endblock %}</title>
 
-    <link rel="canonical" href="https://pyatl.org">
+    <link rel="canonical" href="https://pyatl.dev">
 
     <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -35,7 +35,7 @@
     <header>
 
 <nav class="navbar navbar-light navbar-expand-md fixed-top" style="background-color: #ffffff;">
-  <a class="navbar-brand" href="#">{% include "logo.html" %}</a>
+  <a class="navbar-brand" href="{% url 'index' %}">{% include "logo.html" %}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -44,25 +44,10 @@
     <ul class="navbar-nav ml-auto">
 			
 
-      <li class="nav-item pr-5">
-        <a class="nav-link" href="#">About</a>
-      </li>
-			
-      <li class="nav-item pr-5">
-        <a class="nav-link" href="#">Blog</a>
-      </li>
-			
-      <li class="nav-item pr-5">
-        <a class="nav-link" href="#">Contact</a>
-      </li>
-			
-      <li class="nav-item pr-5">
-        <a class="nav-link" href="#">Events</a>
-      </li>
-			
       <li class="nav-item">
-        <a class="nav-link active" href="#">Join</a>
+        <a class="nav-link" href="{% url 'events' %}">Events</a>
       </li>
+			
 
 			
 

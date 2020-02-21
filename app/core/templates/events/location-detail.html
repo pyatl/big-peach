@@ -1,4 +1,31 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_css %}{% endblock %}
-{% block body %} location {% endblock %}
+{% block body %}
+
+
+<div class="container mt-3">
+        <div class="row">
+            <div class="col-md-12 mt-3 mb-3">
+                <h1>{{ location.name }}</h1>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                {{ location.description|safe }}
+            </div>
+        </div>
+
+        {% if location.map_embed_code %}
+            <div class="row">
+                <div class="col-md-12">
+                    {{ location.map_embed_code|safe }}
+                </div>
+            </div>
+        {% endif %}
+
+
+
+
+ {% endblock %}

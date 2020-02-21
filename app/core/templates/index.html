@@ -128,7 +128,6 @@
 
 
 {% block body %}
-
 <div class="hero">
 	<div class="container pt-5">
 			<h1>We are PyATL.</h1>
@@ -148,92 +147,37 @@
 	
 	<div class="upcoming-events">
 		<hr>
+		
+
+		
+		{% if events %}
+			{% for event in events %}
+		
 		<div class="row">
 			<div class="col-lg-12">
 				
-          <p class="date">Date: 01-01-0101</p>
-          <p class="date">Time: 7:00 PM</p>
-					
-        
-          <h5 class="card-title">Meetup</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Location: <a href="">There</a></h6>
-        <p class="card-text">A description</p>
+          <p class="date">When: {{ event.start }}</p>				        
+          <h5 class="card-title">{{ event.name|capfirst }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Location: <a href="{% url 'location' slug=event.location.slug pk=event.location.pk %}">{{ event.location.name|capfirst }}</a></h6>
+        <p class="card-text">{{ event.short_description|capfirst }}</p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
-            <a type="button" href="" class="">Learn More</a>
+            <a type="button" href="{% url 'event' date=event.slugify_start slug=event.slug pk=event.pk %}" class="btn btn-sm btn-outline-primary">Learn More</a>
           </div>
         </div>
 				<hr>
 			</div>
 			
 		</div>
+			{% endfor %}
+		{% endif %}
 		
-		
-		
-		
-		
-		<div class="row">
-			<div class="col-lg-12">
-				
-          <p class="date">Date: 01-01-0101</p>
-          <p class="date">Time: 7:00 PM</p>
-					
-        
-          <h5 class="card-title">Meetup</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Location: <a href="">There</a></h6>
-        <p class="card-text">A description</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="btn-group">
-            <a type="button" href="" class="">Learn More</a>
-          </div>
-        </div>
-				<hr>
-			</div>
-			
-		</div>
-		
-	</div>
-	
-	
-		
-		<div class="row">
-			<div class="col-lg-12">
-				
-          <p class="date">Date: 01-01-0101</p>
-          <p class="date">Time: 7:00 PM</p>
-					
-        
-          <h5 class="card-title">Meetup</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Location: <a href="">There</a></h6>
-        <p class="card-text">A description</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="btn-group">
-            <a type="button" href="" class="">Learn More</a>
-          </div>
-        </div>
-				<hr>
-			</div>
-			
-		</div>
+
 		
 	</div>
 	
 </div>
 </div>
-
-
-
-<div class="submit-talk">
-<div class="container pt-1">
-
-		<div class="row">
-			<div class="col-12">
-				<h2 class="pb-5">Submit a Talk</h2>
-			</div>
-	</div>
-
-
-
 
 
 {% endblock %}

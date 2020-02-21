@@ -1,8 +1,12 @@
 from django.urls import path, include
 
-from . import views
+from .views import IndexView
 
 urlpatterns = [
+    
     path('events/', include('events.urls')),
-    path('', views.index),
+    
+    
+    path('', IndexView.as_view(),
+        name='index'),
 ]
