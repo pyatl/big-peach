@@ -2,10 +2,6 @@
 {% load static %}
 {% block page_css %}
 
-.hero {
-	background-color: #fff;
-}
-
 @media (max-width: 576px) {
 		.hero {
 			padding-top: 2em;
@@ -128,10 +124,15 @@
 
 
 {% block body %}
-<div class="hero">
+<div class="welcome">
 	<div class="container pt-5">
-			<h1>We are PyATL.</h1>
-			<h3 class="pt-3">A group of technologists that meets every month in Atlanta for presentations and discussion about <a href="https://python.org">Python</a>.</h3>
+		<div class="row">
+			<div class="col-12">
+			
+			<h1>Welcome to the Atlanta Python Programmers Group.</h1>
+			<h3 class="pt-3">We are a group of technologists that meets every month in Atlanta for presentations and discussion about <a href="https://python.org">Python</a>.</h3>
+		</div>
+		</div>
 	</div>
 </div>
 
