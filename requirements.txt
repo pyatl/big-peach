@@ -3,6 +3,8 @@ asgiref==3.2.3
 certifi==2019.11.28
 chardet==3.0.4
 Django==3.0.2
+django-debug-toolbar==2.2
+django-environ==0.4.5
 django-tinymce==2.8.0
 ics==0.6
 idna==2.8
