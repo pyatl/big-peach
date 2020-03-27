@@ -9,7 +9,7 @@ def authenticate(consumer_key, consumer_secret, access_token, access_token_secre
 
 def update_status(api, status):
     try:
-        API.update_status(status)
+        api.update_status(status)
         return True
     except (tweepy.TweepError, ) as e:
         pass
