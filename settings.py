@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar', # for dev only
     'tinymce',
+    'crispy_forms',
     'core',
     'events',
     'social_rpa',
@@ -130,10 +131,16 @@ STATIC_ROOT = env('STATIC_ROOT')
 
 
 # TinyMCE
-
 TINYMCE_DEFAULT_CONFIG = {'theme': 'advanced', }
 
 # DEBUG TOOLBAR - NOT FOR PRODUCTION!
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+
+# django-crispy-forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# email
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'

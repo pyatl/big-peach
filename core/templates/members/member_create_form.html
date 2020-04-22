@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block body %}
 
 <div class="container">
@@ -18,12 +19,16 @@
 
         </div>
     </div>
-<form method="post">
-{% csrf_token %}
-    {{ form }}
-<input class="btn btn-success" type="submit" value="Join">
-</form>
-   
+
+<div class="row">
+    <div class="col-lg-4 col-md-6 col-xs-12">
+            <form method="post">
+            {% csrf_token %}
+                {{ form|crispy }}
+            <input class="btn btn-success" type="submit" value="Join">
+            </form>
+    </div>
+</div>
 </div>
 
 {% endblock %}
