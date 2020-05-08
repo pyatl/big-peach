@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_css %}
+
+@media (max-width: 576px) {
+		.hero {
+			padding-top: 2em;
+			padding-bottom: 3em;
+		}
+	}
+
+@media (min-width: 576px) {
+		.hero {
+			padding-top: 2em;
+			padding-bottom: 3em;
+		}
+	}
+
+@media (min-width: 768px) {
+	.hero {
+		padding-top: 6em;
+		padding-bottom: 6em;
+	}
+}
+
+@media (min-width: 992px) {
+	.hero {
+		padding-top: 12em;
+		padding-bottom: 12em;
+	}
+}
+
+@media (min-width: 1200px) {
+	.hero {
+		padding-top: 12em;
+		padding-bottom: 12em;
+	}
+}
+
+
+.hero h1 {
+	font-size: 7em;
+}
+
+
+
+
+.leading-headline {
+	font-size: 2.0em;
+	padding-top: 20px;
+	padding-left: 20px;	
+}
+
+.leading-text {
+	font-size: 1.1em;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 3px;
+	padding-bottom: 20px;
+}
+
+
+.events {
+	background: #fff;
+}
+
+
+@media (max-width: 576px) {
+		.events {
+			padding-top: 3em;
+			padding-bottom: 5em;
+		}
+	}
+
+@media (min-width: 576px) {
+		.events {
+			padding-top: 3em;
+			padding-bottom: 5em;
+		}
+	}
+
+@media (min-width: 768px) {
+	.events {
+		padding-top: 3em;
+		padding-bottom: 5em;
+	}
+}
+
+@media (min-width: 992px) {
+	.events {
+		padding-top: 3em;
+		padding-bottom: 5em;
+	}
+}
+
+@media (min-width: 1200px) {
+	.events {
+		padding-top: 3em;
+		padding-bottom: 5em;
+	}
+}
+
+
+.events h2 {
+
+}
+
+
+
+.events .card {
+}
+
+.events .events-headline {
+	font-size: 2.0em;
+	padding-left: 20px;
+}
+
+
+.submit-talk {}
+
+
+{% endblock %}
+
+
+
+{% block body %}
+<div class="welcome">
+	<div class="container pt-5">
+		<div class="row">
+			<div class="col-12">
+			
+			<h1>Welcome to the Atlanta Python Programmers Group.</h1>
+			<h3 class="pt-3">We are a group of technologists that meets every month in Atlanta for presentations and discussion about <a href="https://python.org">Python</a>.</h3>
+		</div>
+		</div>
+	</div>
+</div>
+
+
+
+{% block message %} 
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12 mt-4">
+			<hr>
+			<h2 class="pt3 pb-2">News</h2>
+			
+			<ul>
+				<li>All PyATL events have been suspended until further notice due to the COVID-19 situation. We will be holding online events through Discord. Please use the link above to join our Discord server. 🙂</li>
+			</ul>
+			
+		</div>
+	</div>
+</div>
+
+
+
+{% endblock %}
+
+
+<div class="events">
+<div class="container pt-1">
+
+		<div class="row">
+			<div class="col-12">
+				<hr>
+				<h2 class="pb-2">Upcoming Events</h2>
+			</div>
+			
+	</div>
+	
+	<div class="upcoming-events">
+		
+		
+		
+		{% if events %}
+			{% for event in events %}
+		
+		<div class="row">
+			<div class="col-lg-12">
+				
+          <p class="date">When: {{ event.start }}</p>				        
+          <h5 class="card-title">{{ event.name|capfirst }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Location: <a href="{% url 'location' slug=event.location.slug pk=event.location.pk %}">{{ event.location.name|capfirst }}</a></h6>
+        <p class="card-text">{{ event.short_description|capfirst }}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <a type="button" href="{% url 'event' date=event.slugify_start slug=event.slug pk=event.pk %}" class="btn btn-sm btn-outline-primary">Learn More</a>
+          </div>
+        </div>
+				<hr>
+			</div>
+			
+		</div>
+			{% endfor %}
+		{% else %}
+		
+		<div class="row">
+			<div class="col-lg-12">
+			<h5>No events scheduled at the moment. Join us at our <a href="https://discord.gg/5UBnR3P">discord</a>!</h5>
+			</div>
+		</div>
+			
+		{% endif %}
+		
+
+		
+	</div>
+	
+</div>
+</div>
+
+
+{% endblock %}
+
+
+
