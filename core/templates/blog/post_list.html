@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_css %}{% endblock %}
+{% block body %}
+
+
+
+<div class="py-5">
+    <div class="container">
+        <h1>Posts</h1>
+        <ul>
+        {% for published_post in object_list %}
+            <li>{{ published_post.post.created | date }} - {{ published_post.post.title }}</li>
+            {% empty %}
+            <li>No posts yet.</li>
+        {% endfor %}
+        </ul>
+
+    </div>
+</div>
+ {% endblock %}
+

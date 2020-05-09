@@ -41,10 +41,7 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav ml-auto">
-      
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'member_create' %}" title="Become a Member">Become a Member</a>
-      </li>
+			
 
       <li class="nav-item">
         <a class="nav-link" href="{% url 'events' %}">Events</a>
@@ -61,6 +58,7 @@
       <li class="nav-item">
         <a class="nav-link" href="https://www.meetup.com/python-atlanta/" title="Meetup">Meetup.com</a>
       </li>
+			
 
     </ul>
   </div>
@@ -69,17 +67,10 @@
 </header>
 
 <main role="main">
-  {% for message in messages %}
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    {{ message }}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  {% endfor %}
 
 
-{% block body %}{% endblock %}
+{% block body %}{% block message %}{% endblock %}{% endblock %}
+
 </main>
 
 <footer class="mt-3 pt-5">
