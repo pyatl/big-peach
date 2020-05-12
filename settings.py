@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'core',
     'events',
     'social_rpa',
+    'blog',
 ]
 
 MIDDLEWARE = [
