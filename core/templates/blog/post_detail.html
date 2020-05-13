@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_css %}{% endblock %}
+{% block body %}
+
+
+
+<div class="py-5">
+    <div class="container">
+            <h1>{{post.title }}</h1>
+            <p>{{ post.created | date }}</p>
+            <p>Author: {{ post.author }}</p>
+
+            <p class="mt-5">{{ post.body | safe }}</p>
+
+            <p>Categories:
+            {% for post_category in post_categories %}
+            {{ post_category.category.label }}
+            {% endfor %}
+            </p>
+
+            <p>Tags:
+                {% for post_tag in post_tags %}
+                {{ post_tag.tag.label }}
+                {% endfor %}
+            </p>
+
+    </div>
+</div>
+ {% endblock %}
