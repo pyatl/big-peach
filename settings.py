@@ -132,7 +132,7 @@ STATIC_ROOT = env('STATIC_ROOT')
 
 # TinyMCE
 
-TINYMCE_DEFAULT_CONFIG = {'theme': 'advanced', }
+TINYMCE_DEFAULT_CONFIG = {'theme': 'advanced',}
 
 # DEBUG TOOLBAR - NOT FOR PRODUCTION!
 INTERNAL_IPS = [
