@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.http import HttpResponse
 from django.views.generic import TemplateView, View
 from django.shortcuts import get_object_or_404
@@ -24,7 +25,7 @@ class EventsView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(EventsView, self).get_context_data(**kwargs)
-        context['events'] = Event.objects.filter(published=True)
+        context['events'] = Event.objects.filter(published=True, start__gte=timezone.now())
         return context
 
 

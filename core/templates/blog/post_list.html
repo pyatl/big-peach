@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load blog_extras %}
 {% block page_css %}{% endblock %}
 {% block body %}
 
@@ -7,13 +8,33 @@
 
 <div class="py-5">
     <div class="container">
-        <h1>Posts</h1>
-        <ul>
+
+        <a href="{% url 'blog_post_list' %}">
+            <h1>Posts</h1>
+        </a>
+
+        <ul class="pt-4">
         {% for published_post in object_list %}
             <li>
-                <a href="{% url 'blog_post_detail' slug=published_post.post.slug pk=published_post.post.pk %}">
-                    {{ published_post.post.created | date }} - {{ published_post.post.title }}
-                </a>
+                <p>
+                    <a href="{% url 'blog_post_detail' slug=published_post.post.slug pk=published_post.post.pk %}">
+                        {{ published_post.post.created | date }} - {{ published_post.post.title }}
+                    </a>
+                </p>
+                <p>
+                    Categories: 
+                    {% for post_category in published_post.post|categories %}
+                    <a href="{% url 'blog_posts_by_category' pk=post_category.category.pk slug=post_category.category.label|slugify %}"> {{ post_category.category.label }}</a>
+                    {% endfor %}
+                </p>
+
+                <p>
+                    Tags: 
+                    {% for post_tag in published_post.post|tags %}
+                    <a href="{% url 'blog_posts_by_tag' pk=post_tag.tag.pk slug=post_tag.tag.label|slugify %}"> {{ post_tag.tag.label }}</a>
+                    {% endfor %}
+                </p>
+
             </li>
             {% empty %}
             <li>No published posts available at this time.</li>

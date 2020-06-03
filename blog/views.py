@@ -12,7 +12,6 @@ from blog.models import (
     Tag,)
 
 
-
 class PostListView(ListView):
     ''' Public Posts Page '''
     queryset = PostStatus.objects.filter(status=PUBLISHED)
@@ -28,3 +27,21 @@ class PostDetailView(DetailView):
         context['post_categories'] = PostCategory.objects.filter(post__pk=self.kwargs.get('pk'))
         context['post_tags'] = PostTag.objects.filter(post__pk=self.kwargs.get('pk'))
         return context
+
+
+class PostsByCategoryListView(ListView):
+    template_name = "blog/post_list.html"
+
+    def get_queryset(self):
+        queryset = PostCategory.objects.filter(
+        post__in=Post.objects.filter(poststatus__status=PUBLISHED), category__pk=self.kwargs.get('pk'))
+        return queryset
+
+
+class PostsByTagListView(ListView):
+    template_name = "blog/post_list.html"
+
+    def get_queryset(self):
+        queryset = PostTag.objects.filter(
+        post__in=Post.objects.filter(poststatus__status=PUBLISHED), tag__pk=self.kwargs.get('pk'))
+        return queryset
