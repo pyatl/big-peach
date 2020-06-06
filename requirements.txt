@@ -2,7 +2,7 @@ arrow==0.14.7
 asgiref==3.2.3
 certifi==2019.11.28
 chardet==3.0.4
-Django==3.0.4
+Django==3.0.7
 django-debug-toolbar==2.2
 django-environ==0.4.5
 django-tinymce==2.8.0
