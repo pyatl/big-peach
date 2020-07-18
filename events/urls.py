@@ -1,4 +1,4 @@
-from django.urls import path, re_path
+from django.urls import re_path
 from events.views import (
     EventView,
     EventsView,
@@ -19,7 +19,7 @@ urlpatterns = [
         LocationView.as_view(),
         name='location'),
     re_path(r'^locations/$', LocationsView.as_view(), name='locations'),
-    
+
     # event
     re_path(r'^{date}/{slug}/{pk}/$'.format(
         date=date,

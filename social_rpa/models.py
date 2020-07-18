@@ -6,7 +6,7 @@ class Tweet(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField(max_length=280)
     created = models.DateTimeField(auto_now_add=True)
-    author = models.ForeignKey(User, on_delete=models.PROTECT)    
+    author = models.ForeignKey(User, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.title

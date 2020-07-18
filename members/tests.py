@@ -1,8 +1,9 @@
 from django.test import TestCase
-from django.contrib.auth.models import User
 from members.forms import MemberForm
 
+
 class MemberModelFormTest(TestCase):
+
     def setUp(self):
         self.form_data = {'email': 'test@test.com'}
         self.fail_form_data = {'email': 'test@test'}
@@ -14,7 +15,7 @@ class MemberModelFormTest(TestCase):
     def test_member_form_validation_fails(self):
         form = MemberForm(data=self.fail_form_data)
         self.assertFalse(form.is_valid())
-    
+
     def test_member_form_save_add_username(self):
         form = MemberForm(data=self.form_data)
         instance = form.save()

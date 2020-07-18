@@ -1,3 +1,5 @@
+from random import randint
+
 from django.urls import reverse_lazy
 from django.views.generic import FormView
 from django.contrib.auth.models import User
@@ -20,6 +22,6 @@ class MemberCreateView(FormView):
         User.objects.create(
             email=form.cleaned_data['email'],
             username=username
-            )
+        )
         messages.success(self.request, 'Welcome to PyATL!')
         return super().form_valid(form)
