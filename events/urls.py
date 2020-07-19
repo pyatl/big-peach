@@ -19,7 +19,7 @@ urlpatterns = [
         LocationView.as_view(),
         name='location'),
     re_path(r'^locations/$', LocationsView.as_view(), name='locations'),
-    
+
     # event
     re_path(r'^{date}/{slug}/{pk}/$'.format(
         date=date,
