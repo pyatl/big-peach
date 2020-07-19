@@ -45,6 +45,18 @@ class Event(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse(
+            'event',
+            args=[
+                self.start.date(),
+                self.slug,
+                self.pk,
+            ],
+        )
+
+
     @property
     def slugify_start(self):
         '''

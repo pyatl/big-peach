@@ -25,13 +25,3 @@ class Calendar(ICalFeed):
 
     def item_description(self, item):
         return item.description
-
-    def item_link(self, item):
-        return reverse(
-            'event',
-            args=[
-                item.date,
-                item.slug,
-                item.pk,
-            ],
-        )

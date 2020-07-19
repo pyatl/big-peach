@@ -1,6 +1,7 @@
 import datetime
 
 from django.test import TestCase
+from django.urls import reverse
 import pytz
 
 from events.models import Location, Event
@@ -89,4 +90,15 @@ class CalendarTestCase(TestCase):
              'current included event',
              'new included event'],
             [self.feed.item_title(i) for i in self.feed.items()],
+        )
+
+    def test_urls(self):
+        expected = [
+            self.old_included_event.get_absolute_url(),
+            self.current_included_event.get_absolute_url(),
+            self.new_included_event.get_absolute_url(),
+        ]
+        self.assertEqual(
+            expected,
+            [self.feed.item_link(i) for i in self.feed.items()],
         )
