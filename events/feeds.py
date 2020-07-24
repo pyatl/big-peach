@@ -7,6 +7,8 @@ class Calendar(ICalFeed):
     product_id = '-//pyatl.dev//big-peach//EN'
     timezone = 'US/Eastern'
     file_name = 'pyatl.ics'
+    title = 'PyATL Events'
+    description = 'Atlanta-area Python User Group (PyATL) events calendar from https://pyatl.dev'
 
     def items(self):
         # Include events from the last year and into the future.
