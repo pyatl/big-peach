@@ -23,3 +23,18 @@ class Calendar(ICalFeed):
 
     def item_description(self, item):
         return item.description
+
+    def item_guid(self, item):
+        return 'pyatl{}'.format(item.id)
+
+    def item_start_datetime(self, item):
+        return item.start
+
+    def item_end_datetime(self, item):
+        return item.end
+
+    def item_location(self, item):
+        return item.location.name
+
+    def item_geolocation(self, item):
+        return item.location.map_embed_code
