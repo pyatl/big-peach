@@ -9,6 +9,8 @@
 	<meta name="twitter:site" content="@pyatl">
 	<meta name="twitter:title" content="{% block twitter_card_title %}{% endblock %}">
 	<meta name="twitter:description" content="{% block twitter_card_description %}{% endblock %}">
+	<link rel="alternate" type="application/rss+xml" title="PyATL news" href="https://pyatl.dev/blog/feeds/latest/">
+
     <title>{% block page_title %}{% endblock %}</title>
 
     <link rel="canonical" href="https://pyatl.dev">
@@ -19,12 +21,12 @@
 
     <style>
 			@import url('https://fonts.googleapis.com/css?family=Poppins:400&display=swap');
-			
+
 			body {
 		    font-family: 'Poppins', sans-serif;
 				padding-top: 5rem;
 			}
-			
+
 
 			{% block page_css %}{% endblock %}
     </style>
@@ -40,7 +42,7 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav ml-auto">
-      
+
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'member_create' %}" title="Become a Member">Become a Member</a>
       </li>
@@ -56,11 +58,11 @@
       <li class="nav-item">
         <a class="nav-link" href="https://discord.gg/5UBnR3P" title="Twitter">Discord</a>
       </li>
-			
+
       <li class="nav-item">
         <a class="nav-link" href="https://twitter.com/pyatl" title="Twitter">Twitter</a>
       </li>
-			
+
       <li class="nav-item">
         <a class="nav-link" href="https://www.meetup.com/python-atlanta/" title="Meetup">Meetup.com</a>
       </li>

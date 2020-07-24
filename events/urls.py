@@ -6,6 +6,7 @@ from events.views import (
     LocationsView,
     EventInviteDownloadView,
 )
+from events.feeds import Calendar
 
 slug = '(?P<slug>[-\\w\\d]+)'
 pk = '(?P<pk>[0-9]+)'
@@ -19,7 +20,7 @@ urlpatterns = [
         LocationView.as_view(),
         name='location'),
     re_path(r'^locations/$', LocationsView.as_view(), name='locations'),
-    
+
     # event
     re_path(r'^{date}/{slug}/{pk}/$'.format(
         date=date,
@@ -32,4 +33,7 @@ urlpatterns = [
         EventInviteDownloadView.as_view(),
         name='event-invite'),
     re_path(r'^$', EventsView.as_view(), name='events'),
+
+    # calendar
+    path('feed/ical/', Calendar(), name='calendar'),
 ]
