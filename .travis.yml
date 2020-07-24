@@ -15,4 +15,4 @@ jobs:
       install:
         - pip install -r test-requirements.txt
       script:
-        - flake8 --exclude .venv .
+        - flake8 --ignore=E999 --exclude .venv .

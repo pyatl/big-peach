@@ -1,8 +1,4 @@
-import datetime
-
 from django_ical.views import ICalFeed
-from django.urls import reverse
-
 from events.models import Event
 from events import utils
 

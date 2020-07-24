@@ -1,9 +1,5 @@
 import datetime
-
 from django.test import TestCase
-from django.urls import reverse
-import pytz
-
 from events.models import Location, Event
 from events.feeds import Calendar
 from events import utils
@@ -77,11 +73,12 @@ class CalendarTestCase(TestCase):
 
     def test_items(self):
         self.assertEqual(
-            ['old excluded event',
-             'old included event',
-             'current included event',
-             'new included event',
-             'new excluded event',
+            [
+                'old excluded event',
+                'old included event',
+                'current included event',
+                'new included event',
+                'new excluded event',
             ],
             [e.name for e in Event.objects.all().order_by('start')],
         )
