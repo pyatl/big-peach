@@ -2,14 +2,12 @@ from django.shortcuts import get_object_or_404
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from blog.models import (
-    Category,
-    DRAFT,
     Post,
     PostCategory,
     PostStatus,
     PostTag,
     PUBLISHED,
-    Tag,)
+)
 
 
 class PostListView(ListView):
@@ -20,7 +18,7 @@ class PostListView(ListView):
 
 class PostDetailView(DetailView):
     model = Post
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['post'] = get_object_or_404(Post, pk=self.kwargs.get('pk'))
@@ -34,7 +32,9 @@ class PostsByCategoryListView(ListView):
 
     def get_queryset(self):
         queryset = PostCategory.objects.filter(
-        post__in=Post.objects.filter(poststatus__status=PUBLISHED), category__pk=self.kwargs.get('pk'))
+            post__in=Post.objects.filter(poststatus__status=PUBLISHED),
+            category__pk=self.kwargs.get('pk'),
+        )
         return queryset
 
 
@@ -43,5 +43,7 @@ class PostsByTagListView(ListView):
 
     def get_queryset(self):
         queryset = PostTag.objects.filter(
-        post__in=Post.objects.filter(poststatus__status=PUBLISHED), tag__pk=self.kwargs.get('pk'))
+            post__in=Post.objects.filter(poststatus__status=PUBLISHED),
+            tag__pk=self.kwargs.get('pk'),
+        )
         return queryset

@@ -7,5 +7,5 @@ urlpatterns = [
     path('events/', include('events.urls')),
     path('blog/', include('blog.urls')),
     path('', IndexView.as_view(),
-        name='index'),
+         name='index'),
 ]

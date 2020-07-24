@@ -37,4 +37,12 @@ Documentation: https://docs.python.org/3/library/venv.html#creating-virtual-envi
 Please open an issue or explain the issue in our discord server (https://discord.gg/5UBnR3P)
 The last thing we want is to waste your time :)
 
+# Running the tests
+
+The unit tests use Django's test runner. The linter is flake8.
+
+- `pip install -r test-requirements.txt`
+- `flake8 --exclude .venv .`
+- `python3 ./manage.py test`
+
 Happy coding!

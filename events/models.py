@@ -1,4 +1,3 @@
-from datetime import timedelta
 from django.db import models
 from tinymce import models as tinymce_models
 from ics import Calendar
@@ -19,8 +18,8 @@ class Location(models.Model):
     '''
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100)
-    description = tinymce_models.HTMLField() # wysiwyg
-    map_embed_code = models.TextField(blank=True) # open street map embed code
+    description = tinymce_models.HTMLField()  # wysiwyg
+    map_embed_code = models.TextField(blank=True)  # open street map embed code
 
     def __str__(self):
         return self.name
@@ -35,8 +34,8 @@ class Event(models.Model):
     '''
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100)
-    short_description = models.TextField(max_length=280) # size of tweet
-    description = tinymce_models.HTMLField() # wysiwyg
+    short_description = models.TextField(max_length=280)  # size of tweet
+    description = tinymce_models.HTMLField()  # wysiwyg
     start = models.DateTimeField()
     end = models.DateTimeField()
     published = models.BooleanField(default=False)
@@ -55,7 +54,6 @@ class Event(models.Model):
                 self.pk,
             ],
         )
-
 
     @property
     def slugify_start(self):
@@ -135,3 +133,4 @@ class EventInvite(object):
             self._url(),
             self._location()
             )
+

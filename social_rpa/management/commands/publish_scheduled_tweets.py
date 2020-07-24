@@ -1,9 +1,8 @@
 import arrow
 from django.utils import timezone
-from django.core.management.base import BaseCommand, CommandError
-from social_rpa.models import ScheduledTweet
+from django.core.management.base import BaseCommand
 from social_rpa.twitter import authenticate, update_status
-from social_rpa.models import ScheduledTweet, Tweet
+from social_rpa.models import ScheduledTweet
 
 
 class Command(BaseCommand):
@@ -21,9 +20,11 @@ class Command(BaseCommand):
         arw = arrow.utcnow()
         from_time = arw.shift(hours=-1).datetime
         to_time = timezone.now()
-        
-        scheduled_tweets = ScheduledTweet.objects.filter(published=False
-        ).filter(scheduled_for__gte=from_time).filter(scheduled_for__lte=to_time)
+
+        scheduled_tweets = ScheduledTweet.objects.filter(
+            published=False).filter(
+                scheduled_for__gte=from_time).filter(
+                    scheduled_for__lte=to_time)
 
         if scheduled_tweets:
             for scheduled_tweet in scheduled_tweets:

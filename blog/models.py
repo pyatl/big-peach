@@ -67,7 +67,7 @@ PUBLISHED = "published"
 STATUSES = (
     (DRAFT, "draft"),
     (PUBLISHED, "published")
-    )
+)
 
 
 class PostStatus(models.Model):

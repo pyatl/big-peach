@@ -6,7 +6,7 @@ from events.models import (
     Event,
     EventInvite,
     Location,
-    )
+)
 
 
 class EventView(TemplateView):

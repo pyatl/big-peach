@@ -11,6 +11,6 @@ def update_status(api, status):
     try:
         api.update_status(status)
         return True
-    except (tweepy.TweepError, ) as e:
+    except tweepy.TweepError:
         pass
     return False

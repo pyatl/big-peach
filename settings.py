@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'debug_toolbar', # for dev only
+    'debug_toolbar',  # for dev only
     'tinymce',
     'crispy_forms',
     'core',
