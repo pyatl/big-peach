@@ -44,6 +44,17 @@ class Event(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse(
+            'event',
+            args=[
+                self.start.date(),
+                self.slug,
+                self.pk,
+            ],
+        )
+
     @property
     def slugify_start(self):
         '''
@@ -96,7 +107,7 @@ class EventInvite(object):
             self._event.slugify_start,
             self._event.slug,
             self._event.pk
-        )
+            )
 
     def _location(self):
         '''
@@ -109,7 +120,7 @@ class EventInvite(object):
             self._host,
             self._event.location.slug,
             self._event.location.pk
-        )
+            )
 
     def _description(self):
         '''
@@ -121,4 +132,5 @@ class EventInvite(object):
             self._event.short_description,
             self._url(),
             self._location()
-        )
+            )
+

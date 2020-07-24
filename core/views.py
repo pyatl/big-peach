@@ -15,5 +15,5 @@ class IndexView(TemplateView):
         four_weeks_from_now = now + timedelta(weeks=4)
 
         context['events'] = Event.objects.filter(
-            published=True, start__gte=now, start__lte=four_weeks_from_now)
+            published=True, end__gte=now, start__lte=four_weeks_from_now)
         return context

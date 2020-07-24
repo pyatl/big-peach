@@ -10,7 +10,7 @@
     <div class="container">
 
         <a href="{% url 'blog_post_list' %}">
-            <h1>Posts</h1>
+            <h1>Posts <a href="feed/latest/"><img src="{% static "blog/feed-icon-28x28.png" %}" alt="RSS icon"></a></h1>
         </a>
 
         <ul class="pt-4">
@@ -22,14 +22,14 @@
                     </a>
                 </p>
                 <p>
-                    Categories: 
+                    Categories:
                     {% for post_category in published_post.post|categories %}
                     <a href="{% url 'blog_posts_by_category' pk=post_category.category.pk slug=post_category.category.label|slugify %}"> {{ post_category.category.label }}</a>
                     {% endfor %}
                 </p>
 
                 <p>
-                    Tags: 
+                    Tags:
                     {% for post_tag in published_post.post|tags %}
                     <a href="{% url 'blog_posts_by_tag' pk=post_tag.tag.pk slug=post_tag.tag.label|slugify %}"> {{ post_tag.tag.label }}</a>
                     {% endfor %}
@@ -42,5 +42,5 @@
         </ul>
     </div>
 </div>
- {% endblock %}
 
+{% endblock %}
