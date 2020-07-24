@@ -5,7 +5,7 @@ from events import utils
 
 class Calendar(ICalFeed):
     product_id = '-//pyatl.dev//big-peach//EN'
-    timezone = 'US/Eastern'
+    timezone = str(utils._tz)
     file_name = 'pyatl.ics'
     title = 'PyATL Events'
     description = 'Atlanta-area Python User Group (PyATL) events calendar from https://pyatl.dev'
