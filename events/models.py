@@ -8,12 +8,12 @@ from ics import Event as CalendarEvent
 class Location(models.Model):
     '''
     Defines an event's location.
-    For physycal locations it allows 
+    For physycal locations it allows
     for optional open street maps embed codes.
-    This is an iframe embed code provided 
+    This is an iframe embed code provided
     in the open street maps website.
 
-    For online locations, simply leave the map_embed_code 
+    For online locations, simply leave the map_embed_code
     field blank and include a link to the online room
     in the description.
     '''
@@ -44,14 +44,26 @@ class Event(models.Model):
 
     def __str__(self):
         return self.name
-    
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse(
+            'event',
+            args=[
+                self.start.date(),
+                self.slug,
+                self.pk,
+            ],
+        )
+
+
     @property
     def slugify_start(self):
         '''
         Event.start.date as slug
         '''
         return self.start.strftime('%Y-%m-%d')
-    
+
     class Meta:
         ordering = ['start']
 
@@ -71,7 +83,7 @@ class EventInvite(object):
         self._event = event
         self._host = host
         self._scheme = scheme
-    
+
     def generate(self):
         '''
         Generates the ics calendar invite
@@ -98,11 +110,11 @@ class EventInvite(object):
             self._event.slug,
             self._event.pk
             )
-    
+
     def _location(self):
-        ''' 
+        '''
         The event location name and a link
-        to the location's page on pyatl site. 
+        to the location's page on pyatl site.
         '''
         return '{0} - {1}://{2}/location/{3}/{4}/'.format(
             self._event.location.name,
@@ -111,7 +123,7 @@ class EventInvite(object):
             self._event.location.slug,
             self._event.location.pk
             )
-    
+
     def _description(self):
         '''
         The event description.

@@ -7,7 +7,7 @@
 
 {% block page_css %}{% endblock %}
 
-{% block body %} 
+{% block body %}
 
 <div class="py-5">
     <div class="container">
@@ -22,25 +22,25 @@
             <div class="row pb-4">
                 <h1>Upcoming Events</h1>
             </div>
+
+            <div class="row">
+              <p>Subscribe to our <a href="feed/ical/">online calendar</a>.</p>
+            </div>
+
             {% for event in events %}
-        
+
             <div class="row">
                     <div class="col-md-8 mb-2">
-                     
+
                         <h6><span class="date">When: {{ event.start }}</span>
-                    
+
                         <a href="{% url 'event' date=event.slugify_start slug=event.slug pk=event.pk %}"> - {{ event.name|capfirst }}</a></h6>
                     </div>
             </div>
 
             {% endfor %}
-        
- 
 
     </div>
 </div>
 
-
-
- 
 {% endblock %}
