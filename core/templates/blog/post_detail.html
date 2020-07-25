@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
+{% block page_title %} {{ post.title }} {% endblock %}
+{% block twitter_card_title %} {{ post.title }} {% endblock %}
+{% block twitter_card_description %}{{ post.body|truncatechars_html:140|safe }}{% endblock %}
 {% block page_css %}{% endblock %}
 {% block body %}
-
-
 
 <div class="py-5">
     <div class="container">
@@ -14,7 +15,7 @@
             <p class="mt-5">{{ post.body | safe }}</p>
 
             <hr>
-            <p>Author: {{ post.author }}</p>
+            <p>Author: {{ post.author_name }}</p>
             <p>Categories:
             {% for post_category in post_categories %}
             <a href="{% url 'blog_posts_by_category' pk=post_category.category.pk slug=post_category.category.label|slugify %}"> {{ post_category.category.label }}</a>

@@ -22,6 +22,14 @@ class Post(models.Model):
                 self.pk,
             ],
         )
+    
+    def author_name(self):
+        if self.author.first_name and self.author.last_name:
+            return f'{self.author.first_name} {self.author.last_name}'
+        elif self.author.first_name:
+            return self.author.first_name
+        else:
+            return self.author
 
 
 class Category(models.Model):
