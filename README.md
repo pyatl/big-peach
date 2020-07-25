@@ -42,7 +42,7 @@ The last thing we want is to waste your time :)
 The unit tests use Django's test runner. The linter is flake8.
 
 - `pip install -r test-requirements.txt`
-- `flake8 --ignore=E999 --exclude .venv .`
+- `flake8`
 - `python3 ./manage.py test`
 
 Happy coding!
