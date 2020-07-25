@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
-{% block page_title %} {{ post.title }} {% endblock %}
-{% block twitter_card_title %} {{ post.title }} {% endblock %}
-{% block twitter_card_description %}{{ post.body|truncatechars_html:140|safe }}{% endblock %}
+{% block page_title %}{{ post.title }}{% endblock %}
+{% block twitter_card_title %}{{ post.title }}{% endblock %}
+{% block twitter_card_description %}{{ post.body|striptags|truncatechars:140 }}{% endblock %}
 {% block page_css %}{% endblock %}
 {% block body %}
 
