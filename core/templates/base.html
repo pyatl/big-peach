@@ -27,6 +27,9 @@
 				padding-top: 5rem;
 			}
 
+      main { min-height:100vh; }
+
+      footer {background-color:#f5f5f5;}
 
 			{% block page_css %}{% endblock %}
     </style>
@@ -87,9 +90,15 @@
 {% block body %}{% endblock %}
 </main>
 
-<footer class="mt-3 pt-5">
-  <div class="container">
-		{% block footer %}{% endblock %}
+<footer>
+  <div class="container pt-4 pb-3">
+    <p><a href="{% url 'about' %}">About</a></p>
+    <p><a href="{% url 'terms' %}">Terms of Service</a></p>
+    <p><a href="{% url 'coc' %}">Code of Conduct</a></p>
+
+    {% block footer %}{% endblock %}
+    <p class="small">&copy;<span id="year"></span> PyATL and respective license and copyright holders.</p>
+
 	</div>
 </footer>
 
@@ -99,5 +108,9 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 {% block js %}{% endblock %}
+
+<script>
+  document.getElementById("year").innerHTML = new Date().getFullYear();
+</script>
 
 </body></html>
