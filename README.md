@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/pyatl/big-peach.svg?branch=develop)](https://travis-ci.org/pyatl/big-peach)
+
 # big-peach
 Big Peach is the PyATL meetup management system
 
