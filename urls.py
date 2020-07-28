@@ -23,6 +23,7 @@ urlpatterns = [
     path('', include('core.urls')),
     path('admin/', admin.site.urls),
     path(r'tinymce/', include('tinymce.urls')),
+    path('pages/', include('django.contrib.flatpages.urls')),
     path(r'robots.txt', include('robots.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
