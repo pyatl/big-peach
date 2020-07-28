@@ -1,7 +1,10 @@
+import logging
 from datetime import timedelta
 from django.utils import timezone
 from django.views.generic import TemplateView
 from events.models import Event
+
+logger = logging.getLogger(__name__)
 
 
 class IndexView(TemplateView):

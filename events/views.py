@@ -1,3 +1,4 @@
+import logging
 from django.utils import timezone
 from django.http import HttpResponse
 from django.views.generic import TemplateView, View
@@ -7,6 +8,8 @@ from events.models import (
     EventInvite,
     Location,
 )
+
+logger = logging.getLogger(__name__)
 
 
 class EventView(TemplateView):

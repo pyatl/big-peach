@@ -1,3 +1,4 @@
+import logging
 from random import randint
 
 from django.urls import reverse_lazy
@@ -6,6 +7,8 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from random_username.generate import generate_username
 from members.forms import MemberForm
+
+logger = logging.getLogger(__name__)
 
 
 class MemberCreateView(FormView):
