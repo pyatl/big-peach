@@ -143,7 +143,7 @@ INTERNAL_IPS = [
 # django-crispy-forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-# wysiwyg
+# wysiwyg settings on admin
 TINYMCE_DEFAULT_CONFIG = {
     'plugins': "table,paste,searchreplace",
     'width': '100%',
