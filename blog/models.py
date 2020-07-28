@@ -22,7 +22,7 @@ class Post(models.Model):
                 self.pk,
             ],
         )
-    
+
     def author_name(self):
         if self.author.first_name and self.author.last_name:
             return f'{self.author.first_name} {self.author.last_name}'
