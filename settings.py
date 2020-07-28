@@ -153,3 +153,80 @@ TINYMCE_DEFAULT_CONFIG = {
 # email
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+
+
+ADMINS = [('PR', 'pryelluw@gmail.com')]
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'mail_admins', ],
+            'propagate': True,
+        },
+        'django.request': {
+            'handlers': ['console', 'mail_admins', ],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'django.server': {
+            'handlers': ['console', 'mail_admins', ],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'django.db.backends': {
+            'handlers': ['console', 'mail_admins', ],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'django.security.*': {
+            'handlers': ['console', 'mail_admins', ],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'core': {
+            'handlers': ['console', 'mail_admins', ],
+            'level': 'DEBUG',
+        },
+        'blog': {
+            'handlers': ['console', 'mail_admins', ],
+            'level': 'DEBUG',
+        },
+        'events': {
+            'handlers': ['console', 'mail_admins', ],
+            'level': 'DEBUG',
+        },
+        'members': {
+            'handlers': ['console', 'mail_admins', ],
+            'level': 'DEBUG',
+        },
+        'social_rpa': {
+            'handlers': ['console', 'mail_admins', ],
+            'level': 'DEBUG',
+        },
+
+    }
+}
