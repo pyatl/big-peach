@@ -43,9 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'debug_toolbar',  # for dev only
     'tinymce',
     'crispy_forms',
+    'robots',
     'core',
     'events',
     'social_rpa',
@@ -131,6 +133,7 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = env('STATIC_ROOT')
 
+SITE_ID = 1
 
 # TinyMCE
 TINYMCE_DEFAULT_CONFIG = {'theme': 'advanced', }
