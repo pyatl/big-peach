@@ -143,6 +143,13 @@ INTERNAL_IPS = [
 # django-crispy-forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+# wysiwyg
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,paste,searchreplace",
+    'width': '100%',
+    'height': 800
+}
+
 # email
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
