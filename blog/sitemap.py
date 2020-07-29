@@ -3,8 +3,9 @@ from blog.models import PostStatus, PUBLISHED
 
 
 class BlogSitemap(Sitemap):
+    # blog has priority over other pages
     changefreq = 'never'
-    priority = 0.7 # blog has priority over other pages
+    priority = 0.7
 
     def items(self):
         return PostStatus.objects.filter(status=PUBLISHED)
