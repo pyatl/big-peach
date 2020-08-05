@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
+{% block page_title %}{{ location.name }}{% endblock %}
+{% block twitter_card_title %}PyATL event location {{ location.name }}{% endblock %}
+{% block twitter_card_description %}{{ location.description|striptags|truncatechars:140 }}{% endblock %}
 {% block page_css %}{% endblock %}
 {% block body %}
 

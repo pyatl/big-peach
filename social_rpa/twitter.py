@@ -1,4 +1,7 @@
+import logging
 import tweepy
+
+logger = logging.getLogger(__name__)
 
 
 def authenticate(consumer_key, consumer_secret, access_token, access_token_secret):
@@ -11,6 +14,6 @@ def update_status(api, status):
     try:
         api.update_status(status)
         return True
-    except tweepy.TweepError:
-        pass
+    except tweepy.TweepError as e:
+        logger.exception(e)
     return False

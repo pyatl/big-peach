@@ -1,9 +1,9 @@
 from django.urls import re_path, path
 from events.views import (
-    EventView,
-    EventsView,
-    LocationView,
-    LocationsView,
+    EventDetailView,
+    EventsListView,
+    LocationDetailView,
+    LocationsListView,
     EventInviteDownloadView,
 )
 from events.feeds import Calendar
@@ -15,13 +15,13 @@ event_path = f'{date}/{slug}/{pk}/$'
 
 urlpatterns = [
     # location
-    path('location/<slug:slug>/<int:pk>/', LocationView.as_view(), name='location'),
-    path('locations/', LocationsView.as_view(), name='locations'),
+    path('location/<slug:slug>/<int:pk>/', LocationDetailView.as_view(), name='location'),
+    path('locations/', LocationsListView.as_view(), name='locations'),
 
     # event
-    re_path(r'^{}'.format(event_path), EventView.as_view(), name='event'),
+    re_path(r'^{}'.format(event_path), EventDetailView.as_view(), name='event'),
     path('invite/<int:pk>/', EventInviteDownloadView.as_view(), name='event-invite'),
-    path('', EventsView.as_view(), name='events'),
+    path('', EventsListView.as_view(), name='events'),
 
     # calendar
     path('feed/ical/', Calendar(), name='calendar'),

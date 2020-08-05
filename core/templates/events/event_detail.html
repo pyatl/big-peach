@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
+{% block page_title %}{{ event.name }}{% endblock %}
+{% block twitter_card_title %}{{ event.name }}{% endblock %}
+{% block twitter_card_description %}{{ event.short_description }}{% endblock %}
 {% block page_css %}{% endblock %}
 {% block body %} 
 
