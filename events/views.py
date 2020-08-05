@@ -1,4 +1,5 @@
 import logging
+from django.utils import timezone
 from django.http import HttpResponse
 from django.views.generic import View
 from django.views.generic.detail import DetailView
@@ -21,6 +22,9 @@ class EventDetailView(DetailView):
 class EventsListView(ListView):
     model = Event
     context_object_name = 'events'
+
+    def get_queryset(self):
+        return Event.objects.filter(published=True, start__gte=timezone.now())
 
 
 class LocationDetailView(DetailView):
