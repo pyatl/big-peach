@@ -15,18 +15,12 @@ event_path = f'{date}/{slug}/{pk}/$'
 
 urlpatterns = [
     # location
-    path('location/<slug:slug>/<int:pk>/',
-        LocationView.as_view(),
-        name='location'),
+    path('location/<slug:slug>/<int:pk>/', LocationView.as_view(), name='location'),
     path('locations/', LocationsView.as_view(), name='locations'),
 
     # event
-    re_path(r'^{}'.format(event_path),
-        EventView.as_view(),
-        name='event'),
-    path('invite/<int:pk>/',
-        EventInviteDownloadView.as_view(),
-        name='event-invite'),
+    re_path(r'^{}'.format(event_path), EventView.as_view(), name='event'),
+    path('invite/<int:pk>/', EventInviteDownloadView.as_view(), name='event-invite'),
     path('', EventsView.as_view(), name='events'),
 
     # calendar
