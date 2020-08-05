@@ -5,7 +5,7 @@ from django.core.management.base import BaseCommand
 from social_rpa.twitter import authenticate, update_status
 from social_rpa.models import ScheduledTweet
 
-logged = logging.getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
