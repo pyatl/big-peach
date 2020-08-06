@@ -1,7 +1,9 @@
 import logging
 from django.utils import timezone
 from django.http import HttpResponse
-from django.views.generic import TemplateView, View
+from django.views.generic import View
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
 from django.shortcuts import get_object_or_404
 from events.models import (
     Event,
@@ -12,24 +14,27 @@ from events.models import (
 logger = logging.getLogger(__name__)
 
 
-class EventView(TemplateView):
-    ''' Show single Event '''
-    template_name = 'events/event-detail.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(EventView, self).get_context_data(**kwargs)
-        context['event'] = get_object_or_404(Event, pk=kwargs['pk'], published=True)
-        return context
+class EventDetailView(DetailView):
+    model = Event
+    context_object_name = 'event'
 
 
-class EventsView(TemplateView):
-    ''' List all Events '''
-    template_name = 'events/events.html'
+class EventsListView(ListView):
+    model = Event
+    context_object_name = 'events'
 
-    def get_context_data(self, **kwargs):
-        context = super(EventsView, self).get_context_data(**kwargs)
-        context['events'] = Event.objects.filter(published=True, start__gte=timezone.now())
-        return context
+    def get_queryset(self):
+        return Event.objects.filter(published=True, start__gte=timezone.now())
+
+
+class LocationDetailView(DetailView):
+    model = Location
+    context_object_name = 'location'
+
+
+class LocationsListView(ListView):
+    model = Location
+    context_object_name = 'locations'
 
 
 class EventInviteDownloadView(View):
@@ -47,27 +52,6 @@ class EventInviteDownloadView(View):
         event_invite = EventInvite(event, request.META.get('HTTP_HOST'), request.scheme)
         invite = event_invite.generate()
         response = HttpResponse(invite, content_type='text/calendar')
-        response['Filename'] = '{0}-{1}.ics'.format(event.slug, event.slugify_start)
-        response['Content-Disposition'] = 'attachment; filename={0}-{1}.ics'.format(
-            event.slug, event.slugify_start)
+        response['Filename'] = f'{event.slug}-{event.slugify_start}.ics'
+        response['Content-Disposition'] = f'attachment; filename={event.slug}-{event.slugify_start}.ics'
         return response
-
-
-class LocationView(TemplateView):
-    ''' Show single Location '''
-    template_name = 'events/location-detail.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(LocationView, self).get_context_data(**kwargs)
-        context['location'] = get_object_or_404(Location, pk=kwargs['pk'])
-        return context
-
-
-class LocationsView(TemplateView):
-    ''' List all Locations '''
-    template_name = 'events/locations.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(LocationsView, self).get_context_data(**kwargs)
-        context['locations'] = Location.objects.all()
-        return context

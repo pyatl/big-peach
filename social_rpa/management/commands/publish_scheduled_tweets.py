@@ -1,8 +1,11 @@
+import logging
 import arrow
 from django.utils import timezone
 from django.core.management.base import BaseCommand
 from social_rpa.twitter import authenticate, update_status
 from social_rpa.models import ScheduledTweet
+
+logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
@@ -32,11 +35,8 @@ class Command(BaseCommand):
                 if successful:
                     scheduled_tweet.published = True
                     scheduled_tweet.save()
-                    # log success
+                    logger.info(f'Published scheduled tweet with pk: {scheduled_tweet.pk}')
                 else:
-                    pass
-                    # log errors
-            # log job ran and published tweets
-        else:
-            pass
-            # log job ran but no tweets
+                    logger.error(f'Error publishing scheduled tweet with pk: {scheduled_tweet.pk}')
+
+        logger.info('publish scheduled tweets command ran successfully')

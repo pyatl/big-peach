@@ -20,7 +20,7 @@ class MemberCreateView(FormView):
         username = generate_username()[0]
         exists = User.objects.filter(username=username)
         if exists:
-            username = '{0}{1}'.format(generate_username()[0], randint(1, 999))
+            username = f'{generate_username()[0]}{randint(1, 999)}'
 
         User.objects.create(
             email=form.cleaned_data['email'],

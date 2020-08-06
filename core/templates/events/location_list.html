@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block twitter_card_title %}PyATL Event Locations List {% endblock %}
+{% block twitter_card_description %}List of PyATL event locations.{% endblock %}
+{% block page_title %}PyATL Event Locations{% endblock %}
+{% block page_css %}{% endblock %}
+{% block body %}
+
+<div class="py-5">
+    <div class="container">
+            <div class="row">
+                <div class="col-md-8 mt-5 mb-5">
+                    <p>PyATL holds events in different venues. This a list of the most current ones.</p>
+                </div>
+
+            </div>
+
+            <div class="row pb-4">
+                <h1>Locations</h1>
+            </div>
+
+            {% if locations %}
+
+                {% for location in locations %}
+
+                <div class="row">
+                        <div class="col-md-8 mb-2">
+
+                            <h6>{{ location.name }}</h6>
+
+                            <a href="{% url 'location' slug=location.slug pk=location.pk %}">{{ location.name|capfirst }}</a></h6>
+                        </div>
+                </div>
+
+                {% endfor %}
+            
+            {% else %}
+            <div class="row">
+                <div class="col-md-8 mb-2">
+                    <h6>No locations currently available.</h6>
+                </div>
+        </div>
+
+            {% endif %}
+
+    </div>
+</div>
+
+
+{% endblock %}
