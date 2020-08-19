@@ -17,7 +17,7 @@ class PostListView(ListView):
     ''' Public Posts Page '''
     queryset = PostStatus.objects.filter(status=PUBLISHED)
     template_name = "blog/post_list.html"
-    paginate_by = 25
+    paginate_by = 10
 
 
 class PostDetailView(DetailView):
