@@ -15,3 +15,6 @@ class LatestEntriesFeed(Feed):
 
     def item_description(self, item):
         return item.post.body
+
+    def item_pubdate(self, item):
+        return item.post.created
