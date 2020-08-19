@@ -3,7 +3,12 @@
 {% block page_title %}{{ post.title }}{% endblock %}
 {% block twitter_card_title %}{{ post.title }}{% endblock %}
 {% block twitter_card_description %}{{ post.body|striptags|truncatechars:140 }}{% endblock %}
-{% block page_css %}{% endblock %}
+{% block page_css %}
+
+.post-body {
+    font-size: 1.2em;
+}
+{% endblock %}
 {% block body %}
 
 <div class="py-5">
@@ -12,7 +17,7 @@
             <h1>{{post.title }}</h1>
             <p>{{ post.created | date }}</p>
 
-            <p class="mt-5">{{ post.body | safe }}</p>
+            <span class="mt-5 post-body">{{ post.body | safe }}</span>
 
             <hr>
             <p>Author: {{ post.author_name }}</p>
@@ -21,7 +26,7 @@
             <a href="{% url 'blog_posts_by_category' pk=post_category.category.pk slug=post_category.category.label|slugify %}"> {{ post_category.category.label }}</a>
             {% endfor %}
             </p>
-
+            
             <p>Tags:
                 {% for post_tag in post_tags %}
                 <a href="{% url 'blog_posts_by_tag' pk=post_tag.tag.pk slug=post_tag.tag.label|slugify %}"> {{ post_tag.tag.label }}</a>
