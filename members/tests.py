@@ -1,4 +1,5 @@
-from django.test import TestCase
+from django.test import TestCase, Client
+from django.contrib.auth.models import User
 from members.forms import MemberForm
 
 
@@ -22,3 +23,18 @@ class MemberModelFormTest(TestCase):
         username = instance.username
         instance.refresh_from_db()
         self.assertTrue(instance.username == username)
+
+
+class MemberCreateViewTest(TestCase):
+
+    def setUp(self):
+        self.endpoint = '/members/create/'
+        self.email = 'example@test.com'
+        self.client = Client()
+
+    def test_member_gets_create_with_uuid(self):
+        response = self.client.post(self.endpoint, {'email': self.email})
+        user = User.objects.get(email=self.email)
+        self.assertTrue(type(user.email) == str)
+        self.assertTrue(response.status_code == 302)
+        self.assertNumQueries(1)

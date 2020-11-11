@@ -1,12 +1,11 @@
 import logging
-from random import randint
-
+from uuid import uuid4
 from django.urls import reverse_lazy
 from django.views.generic import FormView
 from django.contrib.auth.models import User
 from django.contrib import messages
-from random_username.generate import generate_username
 from members.forms import MemberForm
+from members.models import Member
 
 logger = logging.getLogger(__name__)
 
@@ -17,14 +16,12 @@ class MemberCreateView(FormView):
     success_url = reverse_lazy('index')
 
     def form_valid(self, form):
-        username = generate_username()[0]
-        exists = User.objects.filter(username=username)
-        if exists:
-            username = f'{generate_username()[0]}{randint(1, 999)}'
-
-        User.objects.create(
+        user = User.objects.create(
             email=form.cleaned_data['email'],
-            username=username
+            username=uuid4().hex
+        )
+        Member.objects.create(
+            user=user
         )
         messages.success(self.request, 'Welcome to PyATL!')
         return super().form_valid(form)
