@@ -28,12 +28,21 @@ urlpatterns = [
     path('about/', views.flatpage, {'url': '/about/'}, name='about'),
     path('coc/', views.flatpage, {'url': '/coc/'}, name='coc'),
     path('terms/', views.flatpage, {'url': '/terms/'}, name='terms'),
-    re_path(r'^(?P<url>.*/)$', views.flatpage),
+
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+# needed for compatibility on dev environment with django-pattern-library
+if not settings.DEBUG and not settings.ENABLE_PATTERN_LIBRARY:
+    url_patterns = url_patterns + [re_path(r'^(?P<url>.*/)$', views.flatpage)]
 
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns = [
         path('__debug__/', include(debug_toolbar.urls)),
     ] + urlpatterns
+
+if settings.DEBUG and settings.ENABLE_PATTERN_LIBRARY:
+    urlpatterns += [
+        path("pattern-library/", include("pattern_library.urls")),
+    ]

@@ -1,0 +1,11 @@
+<footer>
+  <div class="container pt-4 pb-3">
+    <p><a href="{% url 'about' %}">About</a></p>
+    <p><a href="{% url 'terms' %}">Terms of Service</a></p>
+    <p><a href="{% url 'coc' %}">Code of Conduct</a></p>
+
+    {% block footer %}{% endblock %}
+    <p class="small">&copy;<span id="year"></span> PyATL and respective license and copyright holders.</p>
+
+	</div>
+</footer>

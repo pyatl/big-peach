@@ -1,0 +1,3 @@
+This directory includes the HTML templates used with the django-pattern-library app.
+These are not meant to be used in production.
+They have to be adapted to whatever use.

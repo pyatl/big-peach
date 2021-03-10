@@ -15,7 +15,8 @@ import environ
 
 env = environ.Env(
     # set casting, default value
-    DEBUG=(bool, False)
+    DEBUG=(bool, False),
+    ENABLE_PATTERN_LIBRARY=(bool, False)
 )
 # reading .env file
 environ.Env.read_env()
@@ -235,3 +236,57 @@ LOGGING = {
 
     }
 }
+
+# django-pattern-library-settings
+
+# note: for development only
+# Do not enable on production!
+# Security risk!
+ENABLE_PATTERN_LIBRARY = env('ENABLE_PATTERN_LIBRARY')
+
+if DEBUG and ENABLE_PATTERN_LIBRARY:
+    
+    INSTALLED_APPS = INSTALLED_APPS + ['pattern_library']
+
+    TEMPLATES = [
+        {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates',
+            'DIRS': [],
+            'APP_DIRS': True,
+            'OPTIONS': {
+                'context_processors': [
+                    'django.template.context_processors.debug',
+                    'django.template.context_processors.request',
+                    'django.contrib.auth.context_processors.auth',
+                    'django.contrib.messages.context_processors.messages',
+                ],
+                "builtins": [
+                    "pattern_library.loader_tags"
+                ],
+            },
+        },
+    ]
+    
+    PATTERN_LIBRARY = {
+        # Groups of templates for the pattern library navigation. The keys
+        # are the group titles and the values are lists of template name prefixes that will
+        # be searched to populate the groups.
+        "SECTIONS": (
+            ("components", ["patterns/components"]),
+            ("pages", ["patterns/pages"]),
+        ),
+
+        # Configure which files to detect as templates.
+        "TEMPLATE_SUFFIX": ".html",
+
+        # Set which template components should be rendered inside of,
+        # so they may use page-level component dependencies like CSS.
+        "PATTERN_BASE_TEMPLATE_NAME": "patterns/base.html",
+
+        # Any template in BASE_TEMPLATE_NAMES or any template that extends a template in
+        # BASE_TEMPLATE_NAMES is a "page" and will be rendered as-is without being wrapped.
+        "BASE_TEMPLATE_NAMES": ["patterns/base_page.html"],
+    }
+    
+
+

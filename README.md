@@ -48,3 +48,19 @@ The unit tests use Django's test runner. The linter is flake8.
 - `python3 ./manage.py test`
 
 Happy coding!
+
+# Front end development 
+
+#### Enabling django-patterm-library
+
+On your `.env` file add (if not already existing):
+
+`ENABLE_PATTERN_LIBRARY=on`
+
+The django-pattern-library is found at http://127.0.0.1:8000/pattern-library/
+
+Please make sure to work on the front end on the pattern library first and commit changes.
+
+Workflow:
+
+Design -> Mockup -> Component -> Test -> Copy to templates
