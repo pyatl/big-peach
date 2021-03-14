@@ -34,7 +34,7 @@ urlpatterns = [
 
 # needed for compatibility on dev environment with django-pattern-library
 if not settings.DEBUG and not settings.ENABLE_PATTERN_LIBRARY:
-    url_patterns = url_patterns + [re_path(r'^(?P<url>.*/)$', views.flatpage)]
+    urlpatterns += [re_path(r'^(?P<url>.*/)$', views.flatpage)]
 
 if settings.DEBUG:
     import debug_toolbar

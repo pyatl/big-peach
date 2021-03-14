@@ -245,7 +245,7 @@ LOGGING = {
 ENABLE_PATTERN_LIBRARY = env('ENABLE_PATTERN_LIBRARY')
 
 if DEBUG and ENABLE_PATTERN_LIBRARY:
-    
+
     INSTALLED_APPS = INSTALLED_APPS + ['pattern_library']
 
     TEMPLATES = [
@@ -266,7 +266,7 @@ if DEBUG and ENABLE_PATTERN_LIBRARY:
             },
         },
     ]
-    
+
     PATTERN_LIBRARY = {
         # Groups of templates for the pattern library navigation. The keys
         # are the group titles and the values are lists of template name prefixes that will
@@ -287,6 +287,3 @@ if DEBUG and ENABLE_PATTERN_LIBRARY:
         # BASE_TEMPLATE_NAMES is a "page" and will be rendered as-is without being wrapped.
         "BASE_TEMPLATE_NAMES": ["patterns/base_page.html"],
     }
-    
-
-
