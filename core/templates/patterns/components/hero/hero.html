@@ -1,11 +1,51 @@
-<div class="welcome">
-	<div class="container pt-5">
-		<div class="row">
-			<div class="col-12">
-			
-			<h1>Welcome to the Atlanta Python Programmers Group.</h1>
-			<h3 class="pt-3">We are a group of technologists that meets every month in Atlanta for presentations and discussion about <a href="https://python.org">Python</a>.</h3>
-		</div>
-		</div>
-	</div>
-</div>
+{% extends 'patterns/base_layout.html' %}
+{% load static %}
+
+{% block inject_css %}
+{% include 'patterns/components/hero/hero.css' %}
+
+{% endblock %}
+
+
+{% block content %}
+    <section class="welcome pt-4 pt-md-11 pb-4">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-12 col-md-5 col-lg-6 order-md-2">
+
+            <!-- Image -->
+            <img src="{% static 'img/python-snake.svg' %}" class="img-fluid mb-5 mb-md-0 mb-sm-5" alt="python-snake" >
+
+          </div>
+          <div class="col-12 col-md-7 col-lg-6 order-md-1" >
+
+            <!-- Heading -->
+            <h1 class="text-center text-md-left">
+              We are the Atlanta<br>Python Programmers Group.
+            </h1>
+
+            <!-- Text -->
+            <p class="lead text-center text-md-left text-muted mb-6 mb-lg-8">
+              A group of technologists that meets every month in Atlanta for presentations and discussion about <a href="https://python.org">Python</a>.
+            </p>
+
+            <!-- Buttons -->
+            <div class="text-center text-md-left">
+              <a href="https://www.meetup.com/python-atlanta/" title="pyatl meetup events page" class="btn btn-hero-square btn-primary shadow lift mr-1">
+                Upcoming Events
+              </a>
+              <a href="{% url 'member_create' %}" title="become a member" class="btn btn-primary-soft lift">
+                Become a member
+              </a>
+            </div>
+
+          </div>
+        </div> <!-- / .row -->
+      </div> <!-- / .container -->
+    </section>
+
+{% endblock %}
+
+
+
+

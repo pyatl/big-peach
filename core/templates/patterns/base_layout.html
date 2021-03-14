@@ -20,23 +20,13 @@
     <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<link rel="stylesheet" href="{% static 'pattenrs/css/main/main.css' %}">
 
+<link rel="stylesheet" href="{% static 'patterns/css/main/main.css' %}">
 
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+<style>
+{% block inject_css %}{% endblock%}
+</style>
 
-			body {
-		    font-family: 'Open Sans', sans-serif;
-				padding-top: 5rem;
-			}
-
-      main { min-height:100vh; }
-
-      footer {background-color:#f5f5f5;}
-
-			{% block page_css %}{% endblock %}
-    </style>
   </head>
   <body>
 

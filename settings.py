@@ -281,7 +281,7 @@ if DEBUG and ENABLE_PATTERN_LIBRARY:
 
         # Set which template components should be rendered inside of,
         # so they may use page-level component dependencies like CSS.
-        "PATTERN_BASE_TEMPLATE_NAME": "patterns/base.html",
+        "PATTERN_BASE_TEMPLATE_NAME": "patterns/base_layout.html",
 
         # Any template in BASE_TEMPLATE_NAMES or any template that extends a template in
         # BASE_TEMPLATE_NAMES is a "page" and will be rendered as-is without being wrapped.
