@@ -1,0 +1,88 @@
+{% extends 'patterns/base_layout.html' %}
+{% load static %}
+
+{% block inject_css %}
+{% include 'patterns/components/upcoming-events/upcoming-events.css' %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="upcoming-events">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-6 mx-auto">
+				
+				<h3 class="mb-0">Attend a PyATL event</h2>
+				<p>PyATL holds four types of events: Jam Sessions, Talks, Live Coding Streams, and Workshops.</p>
+				
+				
+
+        <!-- Card -->
+        <div class="card shadow mb-6 mb-md-8 square-border">
+          <div class="card-body">
+
+            <!-- Heading -->
+            <h6 class="text-uppercase d-inline-block mb-3 mr-1">
+              Upcoming Events
+            </h6>
+
+            <!-- List group -->
+            <div>
+              <div class="list-group list-group-flush">
+                <a class="list-group-item text-reset text-decoration-none" href="#!">
+
+                  <p class="font-weight-bold mb-1">
+                    Live coding stream on PyATL's official Twitch channel
+                  </p>
+                  <p class="font-size-sm text-muted mb-0">
+                    March 16, 2021, 7 p.m. · https://twitch.tv/pyatl
+                  </p>
+
+                </a>
+                <a class="list-group-item text-reset text-decoration-none " href="#!">
+
+                  <p class="font-weight-bold mb-1">
+                    Live coding stream on PyATL's official Twitch channel
+                  </p>
+                  <p class="font-size-sm text-muted mb-0">
+                    March 16, 2021, 7 p.m. · https://twitch.tv/pyatl
+                  </p>
+
+                </a>
+                <a class="list-group-item text-reset text-decoration-none" href="#!">
+
+                  <p class="font-weight-bold mb-1">
+                    Live coding stream on PyATL's official Twitch channel
+                  </p>
+                  <p class="font-size-sm text-muted mb-0">
+                    March 16, 2021, 7 p.m. · https://twitch.tv/pyatl
+                  </p>
+
+                </a>
+
+								
+								
+								
+                <a class="list-group-item text-decoration-none" href="#">
+                	View on meetup.com
+                </a>
+								
+              </div>
+            </div>
+
+          </div>
+        </div>
+				
+				
+				
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+
+
+{% endblock %}
