@@ -1,11 +1,120 @@
-<footer>
-  <div class="container pt-4 pb-3">
-    <p><a href="{% url 'about' %}">About</a></p>
-    <p><a href="{% url 'terms' %}">Terms of Service</a></p>
-    <p><a href="{% url 'coc' %}">Code of Conduct</a></p>
+{% extends 'patterns/base_layout.html' %}
+{% load static %}
 
-    {% block footer %}{% endblock %}
-    <p class="small">&copy;<span id="year"></span> PyATL and respective license and copyright holders.</p>
+{% block inject_css %}
+{% include 'patterns/components/footer/footer.css' %}
 
-	</div>
-</footer>
+{% endblock %}
+
+
+{% block content %}
+
+<footer class="py-5 py-md-5 bg-dark"> 
+	<div class="container"> 
+		<div class="row">
+			<div class="col-12 col-md-4 col-lg-3">
+				<p class="text-light">
+					&copy;<span id="year"></span> PyATL
+				</p>
+			</div> <!-- brand -->
+			
+			<div class="col-6 col-md-4 col-lg-2">
+				<h6 class="font-weight-bold text-light">
+					Connect
+				</h6>
+				
+				<ul class="list-unstyled text-muted mb-5 mb-md-5 mb-lg-0">
+					<li class="mb-3">
+						<a href="#" class="text-reset">
+							Discord
+						</a>
+					</li>
+					
+					<li class="mb-3">
+						<a href="#" class="text-reset">
+							Meetup
+						</a>
+					</li>
+					
+					<li class="mb-3">
+						<a href="#" class="text-reset">
+							Github
+						</a>
+					</li>
+					
+					<li class="mb-3">
+						<a href="#" class="text-reset">
+							Twitter
+						</a>
+					</li>
+					
+					<li class="mb-3">
+						<a href="#" class="text-reset">
+							LinkedIn
+						</a>
+					</li>
+							
+				</ul>
+				
+				
+				
+			</div> <!-- connect -->
+			
+			
+			
+			<div class="col-6 col-md-4 col-lg-2">
+				<h6 class="font-weight-bold text-light">
+					Directory
+				</h6>
+				
+				<ul class="list-unstyled text-muted mb-5 mb-md-5 mb-lg-0">
+					<li class="mb-3">
+						<a href="#" class="text-reset">
+							Become a Member
+						</a>
+					</li>
+					
+					<li class="mb-3">
+						<a href="#" class="text-reset">
+							Blog
+						</a>
+					</li>
+					
+					<li class="mb-3">
+						<a href="#" class="text-reset">
+							Events
+						</a>
+					</li>
+					
+					<li class="mb-3">
+						<a href="{% url 'about' %}" class="text-reset">
+							About
+						</a>
+					</li>
+					
+					<li class="mb-3">
+						<a href="{% url 'terms' %}" class="text-reset">
+							Terms of Service
+						</a>
+					</li>
+					
+					<li class="mb-3">
+						<a href="{% url 'coc' %}" class="text-reset">
+							Code of Conduct
+						</a>
+					</li>
+				</ul>
+			</div> <!-- directory -->
+
+		</div> <!-- row -->
+	</div> <!-- container -->
+</footer> <!-- footer -->
+
+
+
+
+
+
+
+
+{% endblock %}
