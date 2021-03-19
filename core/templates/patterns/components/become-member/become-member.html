@@ -1,0 +1,52 @@
+{% extends 'patterns/base_layout.html' %}
+{% load static %}
+
+{% block inject_css %}
+{% include 'patterns/components/become-member/become-member.css' %}
+
+{% endblock %}
+
+
+{% block content %}
+<section class="become-member">
+	<div class="py-5 py-md-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-6 col-lg-6">
+
+						<h3 class="text-weight-bold text-center">Become a member today!</h3>
+						<p class="text-center">
+							We are working on developing a curated Atlanta jobs list with recruiter contact information.
+							Updates are email only.
+						</p>
+
+
+									
+				</div>
+				
+				
+				<div class="col-12 col-md-6 col-lg-6">
+					<div class="input-group py-2 py-md-5 py-lg-5">
+					  <input type="text" class="form-control" placeholder="your@email.com" aria-label="Recipient's username" aria-describedby="button-addon2">
+					  <div class="input-group-append">
+					    <button class="btn btn-success" type="button" id="button-addon2">Submit</button>
+					  </div>
+					</div>
+
+				
+				</div>
+				
+				
+				
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+
+{% endblock %}
