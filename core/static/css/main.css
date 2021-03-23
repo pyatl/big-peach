@@ -6,7 +6,3 @@ body {
 }
 
 main { min-height:100vh; }
-
-.square-border {
-	border-radius: 0;
-}
