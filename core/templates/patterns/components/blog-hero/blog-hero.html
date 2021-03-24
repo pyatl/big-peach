@@ -1,0 +1,35 @@
+{% extends 'patterns/base_layout.html' %}
+{% load static %}
+
+{% block inject_css %}
+{% include 'patterns/components/blog-hero/blog-hero.css' %}
+
+{% endblock %}
+
+
+{% block content %}
+<section class="blog-hero my-5 my-md-5 my-lg-5 shadow">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 py-5 py-md-5 py-lg-5">
+				<a href="#" class="text-decoration-none"><h1 class="text-white text-center font-weight-bold mb-0 pb-0">
+					Bytecode</h1></a>
+				
+				<h5 class="text-center text-white">A blog about Python, code, software, and everything in between.</h5>
+				
+					<div class="text-center">
+						<a href="#" class="text-decoration-none text-white">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-rss-fill" viewBox="0 0 16 16"><title>rss feed</title>
+							  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm1.5 2.5c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1 0-2zm0 4a6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1 0-2zm.5 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+							</svg>
+						</a>
+					</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+{% endblock %}
