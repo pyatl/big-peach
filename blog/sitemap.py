@@ -1,5 +1,5 @@
 from django.contrib.sitemaps import Sitemap
-from blog.models import PostStatus, PUBLISHED
+from blog.models import Post
 
 
 class BlogSitemap(Sitemap):
@@ -8,10 +8,10 @@ class BlogSitemap(Sitemap):
     priority = 0.7
 
     def items(self):
-        return PostStatus.objects.filter(status=PUBLISHED)
+        return Post.objects.filter(status=Post.PostStatus.PUBLISHED)
 
     def location(self, obj):
-        return obj.post.get_absolute_url()
+        return obj.get_absolute_url()
 
     def lastmod(self, obj):
-        return obj.post.created
+        return obj.created

@@ -1,5 +1,5 @@
 from django.contrib.syndication.views import Feed
-from blog.models import PostStatus, PUBLISHED
+from blog.models import Post
 
 
 class LatestEntriesFeed(Feed):
@@ -8,7 +8,7 @@ class LatestEntriesFeed(Feed):
     description = "Latest blog posts from PyATL.dev"
 
     def items(self):
-        return PostStatus.objects.filter(status=PUBLISHED).order_by('post__created')
+        return Post.objects.filter(status=Post.PostStatus.PUBLISHED).order_by('created')
 
     def item_title(self, item):
         return item.post.title
