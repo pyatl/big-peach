@@ -34,3 +34,5 @@ Simplify the blog models * DONE
 - Remove PostCategory model after release
 - Create migration without PostCategory
 - Release
+
+- Update tests
